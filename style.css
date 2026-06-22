@@ -1,0 +1,545 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.p {
+    color: #ff0000;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+.button {
+  --border-right: 10spx;
+  --text-stroke-color: rgba(0, 0, 0, 0.6);
+  --animation-color: #3770ff;
+  --fs-size: 1em;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    
+
+}
+
+
+
+.container {
+    width: 200%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    height: 600px; 
+    gap: 10px;
+    transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    list-style: none;
+    z-index: 20;
+}
+
+.container li {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 90px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.container li img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.05);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Capa oscura interna de la tarjeta para que el texto se lea perfectamente */
+.container li .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 25px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center;
+    transition: 0.4s ease;
+}
+
+/* Animación de entrada para el texto */
+.container span {
+    text-align: center;
+    width: 100%;
+    transform: translateY(30px);
+    transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0;
+}
+
+.container h2 {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(255,255,255,0.2);
+}
+
+.container p {
+    color: #e0e0e0;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- EFECTOS AL PASAR EL MOUSE (HOVER) --- */
+
+/* Reduce levemente el espacio entre tarjetas no seleccionadas */
+.container:hover {
+    gap: 10px;
+}
+
+/* Expansión de la tarjeta seleccionada */
+.container li:hover {
+    flex: 1 1 350px; 
+    border-radius: 25px;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto zoom sutil a la imagen del planeta */
+.container li:hover img {
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+/* Muestra el bloque de contenido */
+.container li:hover .content {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Desplaza el texto hacia arriba suavemente */
+.container li:hover span {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+.container li:hover {
+    flex: 1 1 320px; 
+    border-radius: 15px;
+    border-color: rgb(45, 39, 39);
+}
+
+.container li:hover img {
+    transform: translate(-50%, -50%) scale(1.1); /* Zoom corregido */
+}
+
+.container li:hover .content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container li:hover span {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-enviar {
+    background-color: #0d47a1;
+    color: white;
+}
+
+.btn-enviar:hover {
+    background-color: #08306b;
+}
+
+.btn-limpiar {
+    background-color: #eeeeee;
+    color: #333;
+}
+
+.btn-limpiar:hover {
+    background-color: #d6d6d6;
+}
+
+.mensaje {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.exito {
+    background-color: #c8e6c9; /* Mejor color para éxito */
+    color: #256029;
+    border: 1px solid #81c784;
+}
+
+.error {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+    border: 1px solid #e57373;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 16px;
+}
+
+header p {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.contenedor {
+    width: 92%;
+    max-width: 950px;
+    margin: 30px auto; /* Corregido */
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+h2 {
+    color: #0d47a1;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+fieldset {
+    border: 1px solid #bbbefb;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+legend {
+    font-weight: bold;
+    color: #0d47a1;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input,
+select,
+textarea { 
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box; /* Eliminado duplicado */
+    background-color: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0d47a1;
+    box-shadow: 0 0 5px rgba(13, 71, 161, 0.4); /* Corregido */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px; /* Corregido */
+}
+
+.fila {
+    display: flex;
+    gap: 15px;
+}
+
+.fila .grupo {
+    flex: 1;
+}
+
+.opciones {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.opciones label {
+    font-weight: normal;
+    background-color: #e3f2fd;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #bbbefb;
+}
+
+.opciones input {
+    width: auto;
+    margin-right: 8px;
+}
+
+.oculto {
+    display: none;
+}
+
+/* Contenedor de botones */
+.botonnes {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Estilo de botones */
+.botonnes button {
+    flex: 1;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-enviar {
+    background-color: #0d47a1;
+    color: white;
+}
+
+.btn-enviar:hover {
+    background-color: #08306b;
+}
+
+.btn-limpiar {
+    background-color: #eeeeee;
+    color: #333;
+}
+
+.btn-limpiar:hover {
+    background-color: #d6d6d6;
+}
+
+.mensaje {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.exito {
+    background-color: #c8e6c9; /* Mejor color para éxito */
+    color: #256029;
+    border: 1px solid #81c784;
+}
+
+.error {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+    border: 1px solid #e57373;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #eeeeee;
+    margin-top: 30px;
+    color: #555; /* Corregido */
+}
+
+@media (max-width: 700px) {
+    .fila {
+        flex-direction: column;
+    }
+
+    .botonnes {
+        flex-direction: column;
+    }
+}
